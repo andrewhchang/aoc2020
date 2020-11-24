@@ -16,3 +16,19 @@ def solve(input)
 end
 
 puts "#{solve(input)}"
+
+#part 2
+def solve(input)
+  valid = 0
+  input.each do |entry|
+    count = 0
+    if entry["password"][entry["min"].to_i - 1] == entry["letter"]
+      count += 1
+    end
+    if entry["password"][entry["max"].to_i - 1] == entry["letter"]
+      count += 1
+    end
+    valid += 1 if count == 1
+  end
+  valid
+end
